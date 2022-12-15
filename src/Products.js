@@ -13,12 +13,11 @@ class Products extends Component {
         this.handleFilter = this.handleFilter.bind(this)
         this.handleDestroy = this.handleDestroy.bind(this)
         this.handleSave = this.handleSave.bind(this)
-	this.getProducts=this.getProducts.bind(this)
+        this.getProducts = this.getProducts.bind(this)
     }
-	
 
 
-	componentDidMount(){
+    componentDidMount(){
         this.getProducts();
     }
 
@@ -43,6 +42,7 @@ class Products extends Component {
         if (!product.id) {
             product.id = new Date().getTime()
         }
+
         fetch('http://localhost:3000/product/create', {
             method: 'POST',
             headers: {

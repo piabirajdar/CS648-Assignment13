@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 
-const dbURL = "mongodb+srv://test:test123@nodeproject-6ejkm.mongodb.net/test?retryWrites=true&w=majority";
+const dbURL = "mongodb+srv://aditi:user2022@nodeproject-6ejkm.mongodb.net/test?retryWrites=true&w=majority";
 
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
@@ -20,27 +20,6 @@ const Product = mongoose.model('product', {
        "instock": Boolean
     }
 })
-
-let object = {
-    "id": 0,
-    "product": {
-       "productid": 0,
-       "category": "",
-       "price": 0,
-       "name": "",
-       "instock": true
-    
-    }
-}   
-
-let objects = {
-    '1': {id: 1, category: 'Music', price: '$500', name: 'Clarinet'},
-    '2': {id: 2, category: 'Music', price: '$5,000', name: 'Cello'},
-    '3': {id: 3, category: 'Music', price: '$3,500', name: 'Tuba'},
-    '4': {id: 4, category: 'Furniture', price: '$709', name: 'Lounge Seat'},
-    '5': {id: 5, category: 'Furniture', price: '$1,300', name: 'Table'},
-    '6': {id: 6, category: 'Furniture', price: '$100', name: 'Bag'}
-};
 
 app.get('/product/get/', function (req, res) {
     Product.find({}, (err, products) => {
